@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* Slightly different light blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #003366; /* Darker ENU blue */
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #0056b3; /* Darker blue */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Validation messages */
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <form id="register-form">
+            <h2>Регистрация</h2>
+            <input type="text" id="username" placeholder="Логин" required>
+            <input type="email" id="email" placeholder="Электронная почта" required>
+            <input type="password" id="password" placeholder="Пароль" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}">
+            <small class="error">Пароль должен содержать минимум 8 символов, включая заглавные и строчные буквы, цифры и специальные символы (@$!%*?&)</small>
+            <button type="submit">Зарегистрироваться</button>
+            <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Basic form validation
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const regex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/;
+
+        if (!regex.test(password)) {
+            e.preventDefault(); // Prevent form submission
+            alert('Пароль должен соответствовать стандарту (Aa@1 и т.д.).');
+        }
+    });
+</script>
+</body>
+</html>
