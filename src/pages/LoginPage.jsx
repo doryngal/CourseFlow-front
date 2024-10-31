@@ -5,7 +5,7 @@ import { Container, Typography } from '@mui/material';
 function LoginPage() {
     return (
         <Container>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom align="center">
                 Вход в систему
             </Typography>
             <LoginForm />
