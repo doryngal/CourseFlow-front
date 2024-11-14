@@ -1,0 +1,10 @@
+/* components/Layout/Footer.module.css */
+.footer {
+    background-color: #004b87; /* ENU Blue */
+    color: white;
+    padding: 20px;
+}
+
+.footerText {
+    text-align: center;
+}

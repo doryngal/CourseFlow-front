@@ -1,0 +1,39 @@
+/* pages/HomePage.module.css */
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #004b87; /* ENU Blue */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.courses {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    flex-grow: 1;
+}

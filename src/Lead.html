@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENUpik</title>//eorigfjeorifgjieuwoasrfhwoaegbpvdtrg
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Light blue background */
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: white;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo .enu-box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      border: 2px solid #004b87; /* ENU Blue */
+      margin-right: 10px;
+    }
+
+    .logo .enu-box span {
+      color: #004b87; /* ENU Blue */
+    }
+
+    .logo .pik {
+      color: #0056b3; /* Light blue */
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .auth-buttons a {
+      color: #0056b3; /* Light blue */
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px;
+      border: 1px solid #0056b3;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #004b87; /* ENU Blue */
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .courses {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .course-card h3 {
+      color: #004b87;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer {
+      background-color: #004b87;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <div class="enu-box"><span>ENU</span></div>
+    <span class="pik">pik</span>
+  </div>
+  <div class="auth-buttons">
+    <a href="register.html">Зарегистрироваться</a>
+    <a href="login.html">Войти</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Добро пожаловать в ENUpik</h1>
+  <p>Выберите курсы, чтобы начать обучение</p>
+</section>
+
+<section class="courses">
+  <div class="course-card">
+    <h3>Курс 1</h3>
+    <p>Описание курса 1</p>
+  </div>
+  <div class="course-card">
+    <h3>Курс 2</h3>
+    <p>Описание курса 2</p>
+  </div>
+  <div class="course-card">
+    <h3>Курс 3</h3>
+    <p>Описание курса 3</p>
+  </div>
+  <div class="course-card">
+    <h3>Курс 4</h3>
+    <p>Описание курса 4</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2024 ENUpik. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
