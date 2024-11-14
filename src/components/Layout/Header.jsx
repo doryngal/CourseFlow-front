@@ -22,12 +22,12 @@ function Header() {
     return (
         <AppBar position="static" color="transparent" className={styles.header}>
             <Toolbar className={styles.toolbar}>
-                {/* Logo on the left */}
-                <Typography variant="h6" className={styles.logo}>
+                {/* Logo with updated design */}
+                <Typography variant="h6" className={`${styles.logo} ${styles.buttonBox}`}>
                     <Link to="/" className={styles.link}>ENUpik</Link>
                 </Typography>
 
-                {/* Center search bar */}
+                {/* Larger search bar beside the logo */}
                 <div className={styles.search}>
                     <TextField
                         variant="outlined"
@@ -37,23 +37,23 @@ function Header() {
                     />
                 </div>
 
-                {/* Auth buttons on the right */}
+                {/* Auth buttons with updated design */}
                 <div className={styles.authButtons}>
                     {isAuthenticated ? (
                         <>
-                            <Button color="inherit" component={Link} to="/profile">
+                            <Button className={styles.buttonBox} color="inherit" component={Link} to="/profile">
                                 Профиль
                             </Button>
-                            <Button color="inherit" onClick={handleLogout}>
+                            <Button className={styles.buttonBox} color="inherit" onClick={handleLogout}>
                                 Выйти
                             </Button>
                         </>
                     ) : (
                         <>
-                            <Button color="inherit" component={Link} to="/login">
+                            <Button className={styles.buttonBox} color="inherit" component={Link} to="/login">
                                 Войти
                             </Button>
-                            <Button color="inherit" component={Link} to="/signup">
+                            <Button className={styles.buttonBox} color="inherit" component={Link} to="/signup">
                                 Регистрация
                             </Button>
                         </>
