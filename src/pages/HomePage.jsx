@@ -20,21 +20,16 @@ function HomePage() {
             <Container className={styles.courses}>
                 {/* Добавляем карточки курсов */}
                 <CourseCard
-                    courseName="Курс по React"
-                    courseDescription="Изучите основы React, включая компоненты, хуки и маршрутизацию."
+                    courseName="Курс по МИТ"
+                    courseDescription='Изучите дисциплину "Мобильные информационные технологии".'
                     courseLink="/course/react"
                 />
                 <CourseCard
-                    courseName="Курс по JavaScript"
-                    courseDescription="Погрузитесь в мир JavaScript и научитесь писать мощные веб-приложения."
+                    courseName="Курс по "
+                    courseDescription="."
                     courseLink="/course/javascript"
                 />
-                <CourseCard
-                    courseName="Курс по CSS"
-                    courseDescription="Изучите все тонкости CSS, включая Flexbox, Grid и адаптивный дизайн."
-                    courseLink="/course/css"
-                />
-                {/* Добавьте другие курсы по аналогии */}
+
             </Container>
 
 
