@@ -1,0 +1,39 @@
+/* components/Course/CourseCard.module.css */
+.cardContainer {
+    margin: 10px; /* Отступ между карточками */
+}
+
+.card {
+    display: block;
+    width: 200px; /* Ширина карточки */
+    height: 250px; /* Высота карточки */
+    background-color: #f9f9f9; /* Цвет фона */
+    border: 2px solid transparent; /* Изначально прозрачная рамка */
+    border-radius: 15px; /* Закругленные углы */
+    padding: 15px;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #0056b3; /* Подсветка границы при наведении */
+    background-color: #e6f0ff; /* Легкий фон при наведении */
+}
+
+.cardContent {
+    text-align: center;
+    height: 100%;
+}
+
+.courseName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004b87; /* Цвет текста */
+    margin-bottom: 10px;
+}
+
+.courseDescription {
+    font-size: 12px;
+    color: #777; /* Цвет описания */
+    line-height: 1.4;
+}

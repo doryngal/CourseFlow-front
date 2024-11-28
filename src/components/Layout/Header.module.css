@@ -13,25 +13,33 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-weight: bold;
     color: #004b87; /* ENU Blue */
-    margin-right: 20px; /* Space between logo and search field */
+    margin-bottom: 10px; /* Отступ снизу */
+    margin-right: 20px; /* Отступ справа для отделения от поисковой строки */
+    text-decoration: none;
 }
 
 .link {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* Наследует цвет от родителя */
+    text-decoration: none; /* Убираем подчеркивание */
 }
 
 .search {
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
+    margin-top: 10px; /* Отступ сверху для отделения от других элементов */
 }
 
 .searchField {
-    width: 400px; /* Increased width */
+    width: 400px; /* Увеличенная ширина */
+    border: 2px solid #004b87; /* Увеличиваем толщину рамки */
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .authButtons {
@@ -39,14 +47,13 @@
     gap: 20px;
 }
 
-/* New buttonBox class for the logo and buttons with a rounded square */
 .buttonBox {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
     border: 1px solid #0056b3;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     color: #0056b3;
     font-size: 16px;
     transition: background-color 0.3s ease, color 0.3s ease;
