@@ -1,0 +1,34 @@
+/* pages/CoursePage.module.css */
+.courseContainer {
+    padding: 20px;
+}
+
+.weekCard {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.weekCard:hover {
+    background-color: #d6e4ff;
+}
+
+.weekDetail {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttonContainer button {
+    margin: 5px;
+}
