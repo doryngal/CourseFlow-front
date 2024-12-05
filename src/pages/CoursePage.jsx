@@ -1,61 +1,66 @@
-// pages/CoursePage.jsx
 import React, { useState } from 'react';
-import { Container, Button, Grid, Typography } from '@mui/material';
 import styles from './CoursePage.module.css';
 
-const courseWeeks = [
-    { week: 1, title: 'Введение', lecture: 'Лекция 1: Введение в курс', lab: 'ЛР 1: Основы', sro: 'СРО 1' },
-    { week: 2, title: 'Тема 2', lecture: 'Лекция 2: ...', lab: 'ЛР 2: ...', sro: 'СРО 2' },
-    // Добавьте остальные 13 недель
-];
-
 function CoursePage() {
+    const weeks = Array.from({ length: 15 }, (_, i) => ({
+        id: i + 1,
+        title: `Неделя ${i + 1}`,
+        description: `Лекции, лабораторные и СРО для недели ${i + 1}`
+    }));
+
     const [selectedWeek, setSelectedWeek] = useState(null);
 
-    const handleSelectWeek = (week) => {
-        setSelectedWeek(week);
-    };
-
     const handleNextWeek = () => {
-        setSelectedWeek((prev) => (prev < courseWeeks.length ? prev + 1 : prev));
+        if (selectedWeek && selectedWeek.id < 15) {
+            setSelectedWeek(weeks[selectedWeek.id]);
+        }
     };
 
-    const handlePrevWeek = () => {
-        setSelectedWeek((prev) => (prev > 1 ? prev - 1 : prev));
-    };
-
-    const handleCollapse = () => {
-        setSelectedWeek(null);
+    const handlePreviousWeek = () => {
+        if (selectedWeek && selectedWeek.id > 1) {
+            setSelectedWeek(weeks[selectedWeek.id - 2]);
+        }
     };
 
     return (
-        <Container className={styles.courseContainer}>
+        <div className={styles.coursePageContainer}>
             {selectedWeek === null ? (
-                <Grid container spacing={2}>
-                    {courseWeeks.map((week) => (
-                        <Grid item xs={12} sm={6} md={4} key={week.week}>
-                            <div className={styles.weekCard} onClick={() => handleSelectWeek(week.week)}>
-                                <Typography variant="h6">Неделя {week.week}</Typography>
-                                <Typography variant="body2">{week.title}</Typography>
-                            </div>
-                        </Grid>
+                <div className={styles.weekContainer}>
+                    {weeks.map((week) => (
+                        <div key={week.id} className={styles.weekCard} onClick={() => setSelectedWeek(week)}>
+                            <div className={styles.weekTitle}>{week.title}</div>
+                            <div className={styles.weekDescription}>{week.description}</div>
+                        </div>
                     ))}
-                </Grid>
+                </div>
             ) : (
-                <div className={styles.weekDetail}>
-                    <Typography variant="h4">Неделя {selectedWeek}: {courseWeeks[selectedWeek - 1].title}</Typography>
-                    <Typography variant="h6">{courseWeeks[selectedWeek - 1].lecture}</Typography>
-                    <Typography>{courseWeeks[selectedWeek - 1].lab}</Typography>
-                    <Typography>{courseWeeks[selectedWeek - 1].sro}</Typography>
-
-                    <div className={styles.buttonContainer}>
-                        <Button variant="contained" onClick={handlePrevWeek} disabled={selectedWeek === 1}>Предыдущая</Button>
-                        <Button variant="contained" onClick={handleCollapse}>К списку недель</Button>
-                        <Button variant="contained" onClick={handleNextWeek} disabled={selectedWeek === courseWeeks.length}>Следующая</Button>
+                <div className={styles.weekContent}>
+                    <div className={styles.weekNav}>
+                        <button
+                            className={styles.navButton}
+                            onClick={handlePreviousWeek}
+                            disabled={selectedWeek.id === 1}
+                        >
+                            Предыдущая неделя
+                        </button>
+                        <h2>{selectedWeek.title}</h2>
+                        <button
+                            className={styles.navButton}
+                            onClick={handleNextWeek}
+                            disabled={selectedWeek.id === 15}
+                        >
+                            Следующая неделя
+                        </button>
                     </div>
+                    <div className={styles.weekDetails}>
+                        <p>{selectedWeek.description}</p>
+                    </div>
+                    <button className={styles.backButton} onClick={() => setSelectedWeek(null)}>
+                        Вернуться к списку недель
+                    </button>
                 </div>
             )}
-        </Container>
+        </div>
     );
 }
 

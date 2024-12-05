@@ -1,0 +1,17 @@
+/* index.css */
+body {
+    font-family: 'Roboto', sans-serif;  /* Новый мягкий шрифт */
+    background-color: #f0f4f8;          /* Светлый фон для всего сайта */
+    color: #333;                        /* Цвет текста */
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3 {
+    font-weight: 600;
+    color: #333;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+}

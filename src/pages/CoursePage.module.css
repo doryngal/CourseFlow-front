@@ -1,34 +1,108 @@
-/* pages/CoursePage.module.css */
-.courseContainer {
-    padding: 20px;
+.coursePageContainer {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
 }
 
+/* Горизонтальное расположение карточек недель */
+.weekContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Стили для карточек */
 .weekCard {
-    background-color: #f0f8ff;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .weekCard:hover {
-    background-color: #d6e4ff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.weekDetail {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 15px;
+.weekTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #004b87;
+}
+
+.weekDescription {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Навигационные кнопки закреплены сверху */
+.weekContent {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weekNav {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.navButton {
+    background: linear-gradient(135deg, #6ab7f5, #4a90e2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+.navButton:hover {
+    background: linear-gradient(135deg, #82c9ff, #5aa6f2);
+    transform: translateY(-3px);
 }
 
-.buttonContainer button {
-    margin: 5px;
+.backButton {
+    width: 80%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #6ab7f5, #4a90e2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backButton:hover {
+    background: linear-gradient(135deg, #82c9ff, #5aa6f2);
+    transform: translateY(-3px);
 }
