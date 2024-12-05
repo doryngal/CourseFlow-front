@@ -1,0 +1,68 @@
+/* ProfilePage.module.css */
+
+/* Основной контейнер для страницы профиля */
+.profilePageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Высота всей страницы */
+    background-color: #f4f7fb; /* Светлый фон */
+}
+
+/* Контейнер для содержимого страницы (для выравнивания элементов) */
+.profileContent {
+    flex-grow: 1; /* Занимает всю оставшуюся высоту */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Стиль для компонента профиля */
+.userProfile {
+    background-color: #ffffff; /* Белый фон для блока профиля */
+    border-radius: 10px; /* Округлые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; /* Максимальная ширина */
+    text-align: center;
+}
+
+/* Заголовок профиля */
+.profileTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Темный цвет текста */
+    margin-bottom: 20px;
+}
+
+/* Стиль для информации в профиле */
+.profileInfo {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Контейнер для футера */
+.footer {
+    background-color: #232f3e; /* Темный фон футера */
+    color: #ffffff; /* Белый текст */
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Футер на мобильных устройствах */
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Стиль футера на больших экранах */
+.footer a:hover {
+    text-decoration: underline;
+}
