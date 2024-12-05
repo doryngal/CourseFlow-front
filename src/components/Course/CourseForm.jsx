@@ -1,7 +1,7 @@
 // components/Course/CourseForm.jsx
 import { useState, useEffect } from 'react';
 import { TextField, Button, Container } from '@mui/material';
-import axios from '../../services/api';
+import {service2Api} from '../../services/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function CourseForm({ isEdit = false }) {
@@ -12,7 +12,7 @@ function CourseForm({ isEdit = false }) {
 
     useEffect(() => {
         if (isEdit) {
-            axios.get(`/courses/${id}`).then((response) => {
+            service2Api().get(`/courses/${id}`).then((response) => {
                 const course = response.data;
                 setTitle(course.Title);
                 setDescription(course.Description);

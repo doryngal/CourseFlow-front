@@ -2,13 +2,14 @@
 import { useEffect, useState } from 'react';
 import { Grid, Card, CardContent, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import axios from '../../services/api';
+import { service2Api } from '../../services/api';
+
 
 function CourseList() {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        axios.get('/courses').then((response) => {
+        service2Api.get('/courses').then((response) => {
             setCourses(response.data.Courses);
         });
     }, []);

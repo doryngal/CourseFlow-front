@@ -1,25 +1,51 @@
-// pages/RegisterPage.jsx
+// pages/SignUpPage.jsx
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Typography, TextField, Button } from '@mui/material';
-import Header from '../components/Layout/Header';
-import Footer from '../components/Layout/Footer';
-import styles from './SighUpPage.module.css';
+import { service1Api } from '../services/api';
+import styles from './SighUpPage.module.css'
 
 function SignUpPage() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await service1Api.post('/auth/register', { name, email, password });
+            navigate('/login');
+        } catch (error) {
+            console.error('Ошибка при регистрации:', error);
+            // Обработка ошибок
+        }
+    };
+
     return (
         <div className={styles.body}>
-
             <Container component="main" maxWidth="xs" className={styles.formContainer}>
                 <Typography variant="h5" gutterBottom>
                     Регистрация
                 </Typography>
-                <form>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="Имя"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
                         label="Email"
-                        autoFocus
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextField
                         variant="outlined"
@@ -28,21 +54,20 @@ function SignUpPage() {
                         fullWidth
                         label="Пароль"
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
+                    <Button
+                        type="submit"
                         fullWidth
-                        label="Подтвердите пароль"
-                        type="password"
-                    />
-                    <Button fullWidth variant="contained" color="primary" className={styles.submitButton}>
+                        variant="contained"
+                        color="primary"
+                        className={styles.submitButton}
+                    >
                         Зарегистрироваться
                     </Button>
                 </form>
             </Container>
-
         </div>
     );
 }

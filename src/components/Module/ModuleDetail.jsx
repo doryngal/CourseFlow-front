@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import axios from '../../services/api';
+import { service2Api } from '../../services/api';
 import CommentList from '../Comment/CommentList';
 import CommentForm from '../Comment/CommentForm';
 
@@ -11,7 +11,7 @@ function ModuleDetail() {
     const [module, setModule] = useState(null);
 
     useEffect(() => {
-        axios.get(`/modules/${id}`).then((response) => {
+        service2Api.get(`/modules/${id}`).then((response) => {
             setModule(response.data);
         });
     }, [id]);

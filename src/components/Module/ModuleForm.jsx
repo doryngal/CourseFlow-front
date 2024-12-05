@@ -1,7 +1,7 @@
 // components/Module/ModuleForm.jsx
 import { useState, useEffect } from 'react';
 import { TextField, Button, Container } from '@mui/material';
-import axios from '../../src/services/api';
+import { service2Api } from '../../services/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function ModuleForm({ isEdit = false }) {
@@ -13,7 +13,7 @@ function ModuleForm({ isEdit = false }) {
 
     useEffect(() => {
         if (isEdit) {
-            axios.get(`/modules/${moduleId}`).then((response) => {
+            service2Api.get(`/modules/${moduleId}`).then((response) => {
                 const module = response.data;
                 setTitle(module.Title);
                 setContent(module.Content);
@@ -27,11 +27,11 @@ function ModuleForm({ isEdit = false }) {
         const data = { Title: title, Content: content, Order: order };
 
         if (isEdit) {
-            axios.put(`/modules/${moduleId}`, data).then(() => {
+            service2Api.put(`/modules/${moduleId}`, data).then(() => {
                 navigate(`/courses/${courseId}`);
             });
         } else {
-            axios.post(`/courses/${courseId}/modules`, data).then(() => {
+            service2Api.post(`/courses/${courseId}/modules`, data).then(() => {
                 navigate(`/courses/${courseId}`);
             });
         }

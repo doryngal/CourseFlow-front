@@ -1,7 +1,8 @@
 // components/Comment/CommentList.jsx
 import { useEffect, useState } from 'react';
 import { List, ListItem, ListItemText, Button } from '@mui/material';
-import axios from '../../services/api';
+import { service2Api } from '../../services/api';
+
 
 function CommentList({ courseId, moduleId }) {
     const [comments, setComments] = useState([]);
@@ -11,13 +12,13 @@ function CommentList({ courseId, moduleId }) {
             ? `/courses/${courseId}/comments`
             : `/modules/${moduleId}/comments`;
 
-        axios.get(endpoint).then((response) => {
+        service2Api.get(endpoint).then((response) => {
             setComments(response.data.Comments);
         });
     }, [courseId, moduleId]);
 
     const handleDelete = (id) => {
-        axios.delete(`/comments/${id}`).then(() => {
+        service2Api.delete(`/comments/${id}`).then(() => {
             setComments((prevComments) => prevComments.filter((c) => c.ID !== id));
         });
     };

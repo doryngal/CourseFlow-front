@@ -1,7 +1,7 @@
 // components/Comment/CommentForm.jsx
 import { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import axios from '../../services/api';
+import { service2Api } from '../../services/api';
 
 function CommentForm({ courseId, moduleId }) {
     const [content, setContent] = useState('');
@@ -12,7 +12,7 @@ function CommentForm({ courseId, moduleId }) {
             ? `/courses/${courseId}/comments`
             : `/modules/${moduleId}/comments`;
 
-        axios
+        service2Api
             .post(endpoint, { Content: content })
             .then(() => {
                 setContent('');

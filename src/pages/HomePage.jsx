@@ -25,7 +25,7 @@ function HomePage() {
                     courseLink="/course/react"
                 />
                 <CourseCard
-                    courseName="Курс по "
+                    courseName="Курс по javascript"
                     courseDescription="."
                     courseLink="/course/javascript"
                 />

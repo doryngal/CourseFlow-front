@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { Typography, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import axios from '../../services/api';
+import { service2Api } from '../../services/api';
+
 import ModuleList from '../Module/ModuleList';
 
 function CourseDetail() {
@@ -10,7 +11,7 @@ function CourseDetail() {
     const [course, setCourse] = useState(null);
 
     useEffect(() => {
-        axios.get(`/courses/${id}`).then((response) => {
+        service2Api.get(`/courses/${id}`).then((response) => {
             setCourse(response.data);
         });
     }, [id]);

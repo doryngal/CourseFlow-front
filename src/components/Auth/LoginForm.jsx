@@ -1,55 +1,68 @@
-// components/Auth/LoginForm.jsx
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { TextField, Button, Container } from '@mui/material';
-import axios from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { service1Api } from '../../services/api';
 import styles from './LoginForm.module.css';
 
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Для перенаправления после входа
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/auth/login', { Email: email, Password: password });
-            const token = response.data.token; // Предполагается, что токен возвращается в поле 'token'
-            // Сохраняем токен в localStorage
-            localStorage.setItem('token', token);
-            // Перенаправляем на главную страницу
+            const response = await service1Api.post('/auth/login', { email, password });
+            const { token } = response.data;
+            login(token);
             navigate('/');
         } catch (error) {
-            // Обработка ошибок
             console.error('Ошибка при входе в систему:', error);
+            // Здесь можно добавить отображение ошибки пользователю
         }
     };
 
     return (
-        <Container maxWidth="sm" className={styles.formContainer}>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    label="Электронная почта"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    fullWidth
-                    margin="normal"
-                    required
-                />
-                <TextField
-                    label="Пароль"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    fullWidth
-                    margin="normal"
-                    required
-                />
-                <Button type="submit" variant="contained" color="primary" fullWidth>
-                    Войти
-                </Button>
-            </form>
-        </Container>
+        <div className={styles.body}>
+            <Container component="main" maxWidth="xs" className={styles.formContainer}>
+                <Typography variant="h5" gutterBottom>
+                    Войти в систему
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="Email"
+                        autoFocus
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="Пароль"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={styles.submitButton}
+                    >
+                        Войти
+                    </Button>
+                </form>
+            </Container>
+        </div>
     );
 }
 
