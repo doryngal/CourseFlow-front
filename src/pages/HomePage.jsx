@@ -1,7 +1,5 @@
 // pages/HomePage.jsx
 import { Container, Typography } from '@mui/material';
-import Header from '../components/Layout/Header';
-import Footer from '../components/Layout/Footer';
 import CourseCard from '../components/Course/CourseCard';  // Импортируем CourseCard
 import styles from './HomePage.module.css';
 

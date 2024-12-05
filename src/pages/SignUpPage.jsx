@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Typography, TextField, Button } from '@mui/material';
 import { service1Api } from '../services/api';
-import styles from './SighUpPage.module.css'
+import styles from './SignUpPage.module.css'
 
 function SignUpPage() {
     const [name, setName] = useState('');

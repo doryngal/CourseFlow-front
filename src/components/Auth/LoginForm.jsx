@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { TextField, Button, Container } from '@mui/material';
+import React, { useState, useContext } from 'react';
+import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { service1Api } from '../../services/api';
@@ -8,6 +8,7 @@ import styles from './LoginForm.module.css';
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
 
@@ -20,7 +21,7 @@ function LoginForm() {
             navigate('/');
         } catch (error) {
             console.error('Ошибка при входе в систему:', error);
-            // Здесь можно добавить отображение ошибки пользователю
+            setError('Неверный email или пароль');
         }
     };
 
@@ -30,6 +31,7 @@ function LoginForm() {
                 <Typography variant="h5" gutterBottom>
                     Войти в систему
                 </Typography>
+                {error && <Typography color="error">{error}</Typography>}
                 <form onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"

@@ -12,11 +12,6 @@ function ProfilePage() {
                     <UserProfile />
                 </div>
             </Container>
-            <div className={styles.footer}>
-                <p>© 2024 ENU University. Все права защищены.</p>
-                <a href="#privacy-policy">Политика конфиденциальности</a>
-                <a href="#terms-of-service">Условия использования</a>
-            </div>
         </div>
     );
 }

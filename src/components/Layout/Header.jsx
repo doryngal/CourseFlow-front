@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import styles from './Header.module.css';
 
 function Header() {
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { isAuthenticated, logout, user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {

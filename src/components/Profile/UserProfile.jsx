@@ -1,39 +1,32 @@
-import { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Typography, TextField, Button, Container } from '@mui/material';
 import { service2Api } from '../../services/api';
 import { AuthContext } from '../../contexts/AuthContext';
-// import { styles from } './UserProfile.module.css'; // Если используете стили
+// import styles from './UserProfile.module.css';
 
 function UserProfile() {
-    const [user, setUser] = useState(null);
+    const { user, setUser, logout } = useContext(AuthContext);
     const [editing, setEditing] = useState(false);
     const [name, setName] = useState('');
     const [profileInfo, setProfileInfo] = useState('');
-    const { logout } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     useEffect(() => {
-        service2Api.get('/auth/profile')
-            .then((response) => {
-                setUser(response.data);
-                setName(response.data.name);
-                setProfileInfo(response.data.profileInfo || '');
-            })
-            .catch((error) => {
-                console.error('Ошибка при загрузке профиля:', error);
-                if (error.response && error.response.status === 401) {
-                    logout();
-                }
-            });
-    }, [logout]);
+        if (user) {
+            setName(user.name);
+            setProfileInfo(user.profile_info || '');
+        }
+    }, [user]);
 
     const handleSave = () => {
-        service2Api.put('/auth/profile', { name, profileInfo })
-            .then(() => {
+        service2Api.put('/auth/profile', { name, profile_info: profileInfo })
+            .then((response) => {
+                setUser(response.data.profile); // Обновление пользователя в контексте
                 setEditing(false);
-                // Возможно, обновить пользователя
             })
             .catch((error) => {
                 console.error('Ошибка при сохранении профиля:', error);
+                setError('Не удалось сохранить профиль. Попробуйте снова.');
             });
     };
 
@@ -42,6 +35,7 @@ function UserProfile() {
     return (
         <Container maxWidth="sm">
             <Typography variant="h4">Профиль пользователя</Typography>
+            {error && <Typography color="error">{error}</Typography>}
             {editing ? (
                 <>
                     <TextField
@@ -66,7 +60,7 @@ function UserProfile() {
             ) : (
                 <>
                     <Typography variant="h6">Имя: {user.name}</Typography>
-                    <Typography variant="body1">О себе: {user.profileInfo}</Typography>
+                    <Typography variant="body1">О себе: {user.profile_info}</Typography>
                     <Button variant="contained" onClick={() => setEditing(true)}>
                         Редактировать
                     </Button>
