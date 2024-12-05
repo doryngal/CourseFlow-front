@@ -43,16 +43,15 @@
     margin-bottom: 15px;
 }
 
-/* Контейнер для футера */
+/* Футер */
 .footer {
     background-color: #232f3e; /* Темный фон футера */
     color: #ffffff; /* Белый текст */
     text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
+    padding: 20px 0;
     width: 100%;
     font-size: 0.9rem;
+    margin-top: auto; /* Сдвигает футер в нижнюю часть */
 }
 
 /* Футер на мобильных устройствах */
