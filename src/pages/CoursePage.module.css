@@ -49,7 +49,7 @@
     padding: 10px;
 }
 
-/* Навигационные кнопки закреплены сверху */
+/* Стиль для страницы недели */
 .weekContent {
     width: 80%;
     max-width: 800px;
@@ -59,6 +59,7 @@
     align-items: center;
 }
 
+/* Навигационные кнопки */
 .weekNav {
     display: flex;
     justify-content: space-between;
@@ -71,6 +72,7 @@
     border-bottom: 1px solid #ddd;
 }
 
+/* Стиль для кнопок навигации */
 .navButton {
     background: linear-gradient(135deg, #6ab7f5, #4a90e2);
     color: white;
@@ -88,6 +90,7 @@
     transform: translateY(-3px);
 }
 
+/* Стиль для кнопки "Вернуться к списку" */
 .backButton {
     width: 80%;
     margin-top: 20px;
@@ -103,6 +106,41 @@
 }
 
 .backButton:hover {
+    background: linear-gradient(135deg, #82c9ff, #5aa6f2);
+    transform: translateY(-3px);
+}
+
+/* Контейнер для отображения Word-файла */
+.wordContainer {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;         /* Фиксированная высота для прокрутки */
+    overflow-y: auto;      /* Вертикальная прокрутка */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Стиль для кнопки скачивания */
+.downloadButton {
+    background: linear-gradient(135deg, #6ab7f5, #4a90e2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-decoration: none;    /* Убираем подчёркивание ссылки */
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.downloadButton:hover {
     background: linear-gradient(135deg, #82c9ff, #5aa6f2);
     transform: translateY(-3px);
 }
